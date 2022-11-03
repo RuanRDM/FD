@@ -1,11 +1,12 @@
 package df;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class PExecuteChen {
 
-    public static void main(String args[]) throws FileNotFoundException {
+    public static void main(String args[]) throws FileNotFoundException, IOException {
         FileInputStream inputStream;
         Scanner sc;
         int sizeList, p; // sizelist -> tamanho da janela / p-> processo monitor
@@ -26,7 +27,7 @@ public class PExecuteChen {
                 p = Integer.valueOf(sArray[0]); // process monitor
                 sizeList = Integer.valueOf(sArray[1]);    // size window
                 margin = Long.valueOf(sArray[2]); // safety margin
-                trace = "d:\\traces\\trace02.txt";                
+                trace = "trace02.txt";                
                 System.out.println(p + "|" + sizeList + "|" + margin + "|" +
                         trace);
                 DFTeste test = new DFTeste(sizeList, margin, trace);

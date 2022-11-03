@@ -1,9 +1,4 @@
 package df;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.LinkedList;
@@ -11,6 +6,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.*;
 
 public class DFTeste extends Thread {
 
@@ -31,10 +27,10 @@ public class DFTeste extends Thread {
             this.A[j] = new LinkedList<>(); //uma lista para cada nodo
         }
     }
-    public void execute() {
-        OutputStream os;
-        BufferedWriter bw;
-        OutputStreamWriter osw;
+    public void execute() throws FileNotFoundException, IOException {
+        // OutputStream os;
+        // BufferedWriter bw;
+        // OutputStreamWriter osw;
         FileInputStream inputStream;
         Scanner sc ;
         String[] stringArray; // para ler a linha
@@ -53,6 +49,13 @@ public class DFTeste extends Thread {
         tInit = new long[10];
         nErros = new long[10];
         tErros = new long[10];
+        
+        //Fluxo de saida de um arquivo
+        //File dir = new File("D:\\");
+        File arq = new File("saida.txt");
+        arq.createNewFile();
+        FileWriter fileWriter = new FileWriter(arq, false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
         
         NumberFormat f = new DecimalFormat("0.000000000000000");
         try {
@@ -88,32 +91,34 @@ public class DFTeste extends Thread {
                 tPrevious[id] = ts; // último ts do id
                 lin++;
             }// eof
-            System.out.println("NÚMERO DE ERROS DO ID");
+            printWriter.print("NÚMERO DE ERROS DO ID"+"\n");
             for(int x=0; x<10; x++){
                 if(x!=1)
-                    System.out.println("["+x+ "] --> "+ nErros[x]);
+                    printWriter.print("["+x+ "] --> "+ nErros[x]+"\n");
             }
-            System.out.println("TEMPO TOTAL DO ID");
+            printWriter.print("TEMPO TOTAL DO ID"+"\n");
             for(int x=0; x<10; x++){
                 if(x!=1)
-                    System.out.println("["+x+ "] --> Tempo final: " + tPrevious[x] + " Tempo Inicial: " + tInit[x] + " Tempo total: " + (tPrevious[x]-tInit[x]));
+                    printWriter.print("["+x+ "] --> Tempo final: " + tPrevious[x] + " Tempo Inicial: " + tInit[x] + " Tempo total: " + (tPrevious[x]-tInit[x])+"\n");
             }
-            System.out.println("TAXA DE ERRO DO ID");
+            printWriter.print("TAXA DE ERRO DO ID"+"\n");
             for(int x=0; x<10; x++){
                 if(x!=1)
-                    System.out.println("["+x+ "] --> " + (nErros[x]/(tPrevious[x]-tInit[x])/1000000000));
+                    printWriter.print("["+x+ "] --> " + (nErros[x]/(tPrevious[x]-tInit[x])/1000000000)+"\n");
             }
-            System.out.println("TEMPO DE ERRO DO ID");
+            printWriter.print("TEMPO DE ERRO DO ID"+"\n");
             for(int x=0; x<10; x++){
                 if(x!=1)
-                    System.out.println("["+x+ "] --> " + tErros[x]);
+                    printWriter.print("["+x+ "] --> " + tErros[x]+"\n");
             }
-            System.out.println("PROBABILIDADE DE ACURÁCIA");
+            printWriter.print("PROBABILIDADE DE ACURÁCIA"+"\n");
             for(int x=0; x<10; x++){
                 if(x!=1)
-                    System.out.println("["+x+ "] --> " + (tErros[x]/(tPrevious[x]-tInit[x]))+"%");
+                    printWriter.print("["+x+ "] --> " + (tErros[x]/(tPrevious[x]-tInit[x]))+"%"+"\n");
             }
-            
+            printWriter.flush();
+            printWriter.close();
+            System.out.println("O arquivo saida.txt foi criado com as informações da leitura das 'traces'");
             sc.close();
             inputStream.close();
         } catch (Exception ex) {

@@ -1,0 +1,50 @@
+NÚMERO DE ERROS DO ID
+[0] --> 0
+[2] --> 0
+[3] --> 0
+[4] --> 9
+[5] --> 0
+[6] --> 0
+[7] --> 0
+[8] --> 0
+[9] --> 0
+TEMPO TOTAL DO ID
+[0] --> Tempo final: 47816444267910754 Tempo Inicial: 47816110368420886 Tempo total: 333899489868
+[2] --> Tempo final: 47816444315625905 Tempo Inicial: 47816110315646805 Tempo total: 333999979100
+[3] --> Tempo final: 47816444271455580 Tempo Inicial: 47816110371244035 Tempo total: 333900211545
+[4] --> Tempo final: 47816444302671279 Tempo Inicial: 47816110312853897 Tempo total: 333989817382
+[5] --> Tempo final: 47816444295684156 Tempo Inicial: 47816110395379441 Tempo total: 333900304715
+[6] --> Tempo final: 47816444228018736 Tempo Inicial: 47816110328114285 Tempo total: 333899904451
+[7] --> Tempo final: 47816444231027105 Tempo Inicial: 47816110331320726 Tempo total: 333899706379
+[8] --> Tempo final: 47816444278234087 Tempo Inicial: 47816110378194980 Tempo total: 333900039107
+[9] --> Tempo final: 47816444313119209 Tempo Inicial: 47816110312872196 Tempo total: 334000247013
+TAXA DE ERRO DO ID
+[0] --> 0
+[2] --> 0
+[3] --> 0
+[4] --> 0
+[5] --> 0
+[6] --> 0
+[7] --> 0
+[8] --> 0
+[9] --> 0
+TEMPO DE ERRO DO ID
+[0] --> 0
+[2] --> 0
+[3] --> 0
+[4] --> 126773259
+[5] --> 0
+[6] --> 0
+[7] --> 0
+[8] --> 0
+[9] --> 0
+PROBABILIDADE DE ACURÁCIA
+[0] --> 0%
+[2] --> 0%
+[3] --> 0%
+[4] --> 0%
+[5] --> 0%
+[6] --> 0%
+[7] --> 0%
+[8] --> 0%
+[9] --> 0%
