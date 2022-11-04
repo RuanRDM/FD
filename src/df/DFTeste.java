@@ -42,22 +42,23 @@ public class DFTeste extends Thread {
         long[] tInit; // para armazenar o tempo inicial
         long[] nErros; // para armazenar o numero de erros
         long[] tErros; // para armazenar o tempo de erros
-        
+
         String line;
         timeout = new long[10];
         tPrevious = new long[10];
         tInit = new long[10];
         nErros = new long[10];
         tErros = new long[10];
-        
+        double tTotal = 0;
         //Fluxo de saida de um arquivo
         //File dir = new File("D:\\");
         File arq = new File("saida.txt");
-        arq.createNewFile();
-        FileWriter fileWriter = new FileWriter(arq, false);
+        
+        FileWriter fileWriter = new FileWriter(arq, true);
         PrintWriter printWriter = new PrintWriter(fileWriter);
         
         NumberFormat f = new DecimalFormat("0.000000000000000");
+        NumberFormat f2 = new DecimalFormat("0.#");
         try {
             inputStream = new FileInputStream(trace);
             sc = new Scanner(inputStream, "UTF-8");
@@ -71,7 +72,7 @@ public class DFTeste extends Thread {
                
                 EA = (long) computeEA(sizeList, id);
                 timeout[id] = EA + margin;
-                  System.out.println("["+ id + "] => " + ts + " - " + timeout[id] + " - Margin: " + margin);
+                  //System.out.println("["+ id + "] => " + ts + " - " + timeout[id] + " - Margin: " + margin);
                 if ((ts > timeout[id]) && (!A[id].isEmpty())) {
                     /// heartbeat chegou depois da estimativa  
                     /// coloca como suspeito
@@ -87,35 +88,35 @@ public class DFTeste extends Thread {
                 A[id].add(ts);
                 if(tInit[id]==0){
                     tInit[id]=ts;
+                    if(tTotal==0){
+                        tTotal=ts;
+                    }
                 }
                 tPrevious[id] = ts; // último ts do id
                 lin++;
             }// eof
-            printWriter.print("NÚMERO DE ERROS DO ID"+"\n");
+            tTotal=ts-tTotal;
+            //escreve bonito
             for(int x=0; x<10; x++){
-                if(x!=1)
-                    printWriter.print("["+x+ "] --> "+ nErros[x]+"\n");
+                if(x!=1){
+                    printWriter.print("["+x+ "] --> Numero de erros: "+ f2.format((double)nErros[x])+"\n");
+                    printWriter.print("["+x+ "] --> Tempo total: " + f2.format((double)tPrevious[x]-(double)tInit[x])+"\n");
+                    printWriter.print("["+x+ "] --> Taxa de erro: " + ((double)nErros[x]/(double)tTotal) +"\n");
+                    printWriter.print("["+x+ "] --> Tempo de erro: " + f2.format((double)tErros[x])+"\n");
+                    printWriter.print("["+x+ "] --> Probabilidade de acuracia: " + (f.format(1-((double)tErros[x]/((double)tPrevious[x]-(double)tInit[x]))))+"\n");
+                    printWriter.print("---\n");
+                }       
             }
-            printWriter.print("TEMPO TOTAL DO ID"+"\n");
-            for(int x=0; x<10; x++){
-                if(x!=1)
-                    printWriter.print("["+x+ "] --> Tempo final: " + tPrevious[x] + " Tempo Inicial: " + tInit[x] + " Tempo total: " + (tPrevious[x]-tInit[x])+"\n");
-            }
-            printWriter.print("TAXA DE ERRO DO ID"+"\n");
-            for(int x=0; x<10; x++){
-                if(x!=1)
-                    printWriter.print("["+x+ "] --> " + (nErros[x]/(tPrevious[x]-tInit[x])/1000000000)+"\n");
-            }
-            printWriter.print("TEMPO DE ERRO DO ID"+"\n");
-            for(int x=0; x<10; x++){
-                if(x!=1)
-                    printWriter.print("["+x+ "] --> " + tErros[x]+"\n");
-            }
-            printWriter.print("PROBABILIDADE DE ACURÁCIA"+"\n");
-            for(int x=0; x<10; x++){
-                if(x!=1)
-                    printWriter.print("["+x+ "] --> " + (tErros[x]/(tPrevious[x]-tInit[x]))+"%"+"\n");
-            }
+            //escreve feito para planilha
+            // for(int x=0; x<10; x++){
+            //     if(x!=1){
+            //         printWriter.print(x+ f2.format((double)nErros[x])+"\n");
+            //         printWriter.print(x+ f2.format((double)tPrevious[x]-(double)tInit[x])+"\n");
+            //         printWriter.print(x+ f.format(((double)nErros[x]/(double)tTotal)/1000000000) +"\n");
+            //         printWriter.print(x+ f2.format((double)tErros[x])+"\n");
+            //         printWriter.print(x+ (f.format(1-((double)tErros[x]/((double)tPrevious[x]-(double)tInit[x]))))+"\n");
+            //     }       
+            // }
             printWriter.flush();
             printWriter.close();
             System.out.println("O arquivo saida.txt foi criado com as informações da leitura das 'traces'");

@@ -1,50 +1,56 @@
-NÚMERO DE ERROS DO ID
-[0] --> 0
-[2] --> 0
-[3] --> 0
-[4] --> 9
-[5] --> 0
-[6] --> 0
-[7] --> 0
-[8] --> 0
-[9] --> 0
-TEMPO TOTAL DO ID
-[0] --> Tempo final: 47816444267910754 Tempo Inicial: 47816110368420886 Tempo total: 333899489868
-[2] --> Tempo final: 47816444315625905 Tempo Inicial: 47816110315646805 Tempo total: 333999979100
-[3] --> Tempo final: 47816444271455580 Tempo Inicial: 47816110371244035 Tempo total: 333900211545
-[4] --> Tempo final: 47816444302671279 Tempo Inicial: 47816110312853897 Tempo total: 333989817382
-[5] --> Tempo final: 47816444295684156 Tempo Inicial: 47816110395379441 Tempo total: 333900304715
-[6] --> Tempo final: 47816444228018736 Tempo Inicial: 47816110328114285 Tempo total: 333899904451
-[7] --> Tempo final: 47816444231027105 Tempo Inicial: 47816110331320726 Tempo total: 333899706379
-[8] --> Tempo final: 47816444278234087 Tempo Inicial: 47816110378194980 Tempo total: 333900039107
-[9] --> Tempo final: 47816444313119209 Tempo Inicial: 47816110312872196 Tempo total: 334000247013
-TAXA DE ERRO DO ID
-[0] --> 0
-[2] --> 0
-[3] --> 0
-[4] --> 0
-[5] --> 0
-[6] --> 0
-[7] --> 0
-[8] --> 0
-[9] --> 0
-TEMPO DE ERRO DO ID
-[0] --> 0
-[2] --> 0
-[3] --> 0
-[4] --> 126773259
-[5] --> 0
-[6] --> 0
-[7] --> 0
-[8] --> 0
-[9] --> 0
-PROBABILIDADE DE ACURÁCIA
-[0] --> 0%
-[2] --> 0%
-[3] --> 0%
-[4] --> 0%
-[5] --> 0%
-[6] --> 0%
-[7] --> 0%
-[8] --> 0%
-[9] --> 0%
+------------ MARGIN: 100000000
+[0] --> Numero de erros: 7376
+[0] --> Tempo total: 542748789026840
+[0] --> Taxa de erro: 0
+[0] --> Tempo de erro: 9663283129328
+[0] --> Probabilidade de acuracia: 0,982195661557063
+---
+[2] --> Numero de erros: 54166
+[2] --> Tempo total: 176729906867200
+[2] --> Taxa de erro: 0
+[2] --> Tempo de erro: 2001061260643
+[2] --> Probabilidade de acuracia: 0,988677291262612
+---
+[3] --> Numero de erros: 683
+[3] --> Tempo total: 542748700142352
+[3] --> Taxa de erro: 0
+[3] --> Tempo de erro: 56787755913
+[3] --> Probabilidade de acuracia: 0,999895370074773
+---
+[4] --> Numero de erros: 111804
+[4] --> Tempo total: 542748792680144
+[4] --> Taxa de erro: 0
+[4] --> Tempo de erro: 4120721044846
+[4] --> Probabilidade de acuracia: 0,992407682706216
+---
+[5] --> Numero de erros: 7947
+[5] --> Tempo total: 542748691518544
+[5] --> Taxa de erro: 0
+[5] --> Tempo de erro: 62447208760742
+[5] --> Probabilidade de acuracia: 0,884942682061522
+---
+[6] --> Numero de erros: 876
+[6] --> Tempo total: 542748804752720
+[6] --> Taxa de erro: 0
+[6] --> Tempo de erro: 251044385184
+[6] --> Probabilidade de acuracia: 0,999537457507072
+---
+[7] --> Numero de erros: 4664
+[7] --> Tempo total: 542748797788304
+[7] --> Taxa de erro: 0
+[7] --> Tempo de erro: 13218282340669
+[7] --> Probabilidade de acuracia: 0,975645671819941
+---
+[8] --> Numero de erros: 21372
+[8] --> Tempo total: 542748699119800
+[8] --> Taxa de erro: 0
+[8] --> Tempo de erro: 8888276077880
+[8] --> Probabilidade de acuracia: 0,983623588426293
+---
+[9] --> Numero de erros: 33854
+[9] --> Tempo total: 542748762853680
+[9] --> Taxa de erro: 0
+[9] --> Tempo de erro: 19869116371863
+[9] --> Probabilidade de acuracia: 0,963391687403589
+---
+------------ MARGIN: 200000000
