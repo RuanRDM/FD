@@ -97,26 +97,27 @@ public class DFTeste extends Thread {
             }// eof
             tTotal=ts-tTotal;
             //escreve bonito
-            for(int x=0; x<10; x++){
-                if(x!=1){
-                    printWriter.print("["+x+ "] --> Numero de erros: "+ f2.format((double)nErros[x])+"\n");
-                    printWriter.print("["+x+ "] --> Tempo total: " + f2.format((double)tPrevious[x]-(double)tInit[x])+"\n");
-                    printWriter.print("["+x+ "] --> Taxa de erro: " + ((double)nErros[x]/(double)tTotal) +"\n");
-                    printWriter.print("["+x+ "] --> Tempo de erro: " + f2.format((double)tErros[x])+"\n");
-                    printWriter.print("["+x+ "] --> Probabilidade de acuracia: " + (f.format(1-((double)tErros[x]/((double)tPrevious[x]-(double)tInit[x]))))+"\n");
-                    printWriter.print("---\n");
-                }       
-            }
-            //escreve feito para planilha
             // for(int x=0; x<10; x++){
             //     if(x!=1){
-            //         printWriter.print(x+ f2.format((double)nErros[x])+"\n");
-            //         printWriter.print(x+ f2.format((double)tPrevious[x]-(double)tInit[x])+"\n");
-            //         printWriter.print(x+ f.format(((double)nErros[x]/(double)tTotal)/1000000000) +"\n");
-            //         printWriter.print(x+ f2.format((double)tErros[x])+"\n");
-            //         printWriter.print(x+ (f.format(1-((double)tErros[x]/((double)tPrevious[x]-(double)tInit[x]))))+"\n");
+            //         printWriter.print("["+x+ "] --> Numero de erros: "+ f2.format((double)nErros[x])+"\n");
+            //         printWriter.print("["+x+ "] --> Tempo total: " + f2.format((double)tPrevious[x]-(double)tInit[x])+"\n");
+            //         printWriter.print("["+x+ "] --> Taxa de erro: " + f.format((double)nErros[x]/(double)tTotal*1000000000) +"\n");
+            //         printWriter.print("["+x+ "] --> Tempo de erro: " + f2.format((double)tErros[x])+"\n");
+            //         printWriter.print("["+x+ "] --> Probabilidade de acuracia: " + (f.format(1-((double)tErros[x]/((double)tPrevious[x]-(double)tInit[x]))))+"\n");
+            //         printWriter.print("---\n");
             //     }       
             // }
+            //escreve feio para planilha
+            for(int x=0; x<10; x++){
+                if(x!=1){
+                    printWriter.print(x+";"+this.sizeList+";"+margin+";");
+                    printWriter.print(f2.format((double)nErros[x])+";");
+                    printWriter.print(f2.format((double)tPrevious[x]-(double)tInit[x])+";");
+                    printWriter.print(f.format((double)nErros[x]/(double)tTotal*1000000000)+";");
+                    printWriter.print(f2.format((double)tErros[x])+";");
+                    printWriter.print((f.format(1-((double)tErros[x]/((double)tPrevious[x]-(double)tInit[x]))))+"\n");
+                }       
+            }
             printWriter.flush();
             printWriter.close();
             System.out.println("O arquivo saida.txt foi criado com as informações da leitura das 'traces'");

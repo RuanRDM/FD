@@ -34,9 +34,9 @@ public class PExecuteChen {
                 p = Integer.valueOf(sArray[0]); // process monitor
                 sizeList = Integer.valueOf(sArray[1]);    // size window
                 margin = Long.valueOf(sArray[2]); // safety margin
-                trace = "trace.txt";                
+                trace = "D:\\trace.txt";                
                 System.out.println(p + "|" + sizeList + "|" + margin + "|" + trace);
-                printWriter.print("------------ MARGIN: "+ margin +"\n");
+                //printWriter.print("------------ MARGIN: "+ margin +"\n");
                 printWriter.flush();
                 
                 DFTeste test = new DFTeste(sizeList, margin, trace);
